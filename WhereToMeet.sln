@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhereToMeet", "WhereToMeet\WhereToMeet.csproj", "{83F29ED7-40F8-4C4F-9297-B9737F8B2774}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhereToMeet.Repository", "WhereToMeet.Repository\WhereToMeet.Repository.csproj", "{B05A895D-8FD0-48A7-9FE4-5AEFC94F1889}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{83F29ED7-40F8-4C4F-9297-B9737F8B2774}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83F29ED7-40F8-4C4F-9297-B9737F8B2774}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83F29ED7-40F8-4C4F-9297-B9737F8B2774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B05A895D-8FD0-48A7-9FE4-5AEFC94F1889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05A895D-8FD0-48A7-9FE4-5AEFC94F1889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05A895D-8FD0-48A7-9FE4-5AEFC94F1889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05A895D-8FD0-48A7-9FE4-5AEFC94F1889}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,9 @@
 # My files
 **/History.md
 
+# Migration files
+WhereToMeet.Repository/Migrations
+
 # User-specific files
 *.suo
 *.user
