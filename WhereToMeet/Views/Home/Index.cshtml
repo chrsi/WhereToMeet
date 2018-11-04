@@ -1,15 +1,13 @@
-﻿@{
-    Layout = null;
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home";
 }
 
-<!DOCTYPE html>
+<form method="post" asp-action="GoToMeeting">
+    <input type="text" id="meetingId" name="meetingId" placeholder="meeting identifier" />
+    <input type="submit" />
+</form>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Hello World</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
-</html>
+@Html.ActionLink("Create Meeting", "CreateMeeting", "Meeting");

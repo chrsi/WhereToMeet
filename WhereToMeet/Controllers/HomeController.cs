@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WhereToMeet.Controllers
@@ -11,6 +8,17 @@ namespace WhereToMeet.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult GoToMeeting([FromForm] Guid meetingId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            return RedirectToAction("Index", "Meeting", new { meetingId = meetingId });
         }
     }
 }
