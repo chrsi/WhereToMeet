@@ -5,9 +5,14 @@
     ViewBag.Title = "Home";
 }
 
-<form method="post" asp-action="GoToMeeting">
-    <input type="text" id="meetingId" name="meetingId" placeholder="meeting identifier" />
-    <input type="submit" />
-</form>
-
-@Html.ActionLink("Create Meeting", "CreateMeeting", "Meeting");
+<section class="meeting-departures">
+    <section class="existing-meetings">
+        <form method="post" asp-action="GoToMeeting">
+            <input type="text" name="meetingId" placeholder="meeting identifier" />
+            <input type="submit" />
+        </form>
+    </section>
+    <section class="new-meetings">
+        @Html.ActionLink("Create Meeting", "Index", "Meeting")
+    </section>
+</section>

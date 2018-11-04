@@ -18,7 +18,7 @@ namespace WhereToMeet.Controllers
                 return BadRequest();
             }
 
-            return RedirectToAction("Index", "Meeting", new { meetingId = meetingId });
+            return RedirectToAction("ShowMeeting", "Meeting", new { meetingId });
         }
     }
 }
