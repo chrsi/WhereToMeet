@@ -8,9 +8,10 @@
 
 <h1>CreateMeeting</h1>
 
-<form method="post" asp-action="CreateMeeting">
+@using(Html.BeginForm("CreateMeeting", "Meeting", FormMethod.Post))
+{
     @Html.LabelFor(m => m.Name)
     @Html.EditorFor(m => m.Name)
 
     <input type="submit" />
-</form>
+}

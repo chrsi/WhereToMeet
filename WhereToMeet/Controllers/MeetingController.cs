@@ -39,7 +39,7 @@ namespace WhereToMeet.Controllers
             Meeting meeting = meetingOrganizer.CreateMeeting(meetingRequest);
             if (meeting == null) return StatusCode(500);
 
-            return View("Meeting", meeting);
+            return RedirectToAction("ShowMeeting", new { meetingId = meeting.MeetingId });
         }
     }
 }
