@@ -8,7 +8,7 @@
 
 <h1>CreateMeeting</h1>
 
-@using(Html.BeginForm("CreateMeeting", "Meeting", FormMethod.Post))
+@using(Html.BeginForm("Create", "Meeting", FormMethod.Post))
 {
     @Html.LabelFor(m => m.Name)
     @Html.EditorFor(m => m.Name)

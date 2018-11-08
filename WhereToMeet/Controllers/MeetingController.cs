@@ -15,21 +15,21 @@ namespace WhereToMeet.Controllers
         }
 
         [ActionName("Index")]
-        public IActionResult RequestNewMeeting()
+        public IActionResult Create()
         {
-            return View("CreateMeeting");
+            return View("Create");
         }
 
-        public IActionResult ShowMeeting(Guid meetingId)
+        public IActionResult Details(Guid meetingId)
         {
             Meeting meeting = meetingOrganizer.GetMeeting(meetingId);
             if (meeting == null) return BadRequest();
 
-            return View("Meeting", meeting);
+            return View("Details", meeting);
         }
 
         [HttpPost]
-        public IActionResult CreateMeeting(MeetingRequest meetingRequest)
+        public IActionResult Create(MeetingRequest meetingRequest)
         {
             if (!ModelState.IsValid)
             {
@@ -39,7 +39,7 @@ namespace WhereToMeet.Controllers
             Meeting meeting = meetingOrganizer.CreateMeeting(meetingRequest);
             if (meeting == null) return StatusCode(500);
 
-            return RedirectToAction("ShowMeeting", new { meetingId = meeting.MeetingId });
+            return RedirectToAction("Details", new { meetingId = meeting.MeetingId });
         }
     }
 }
