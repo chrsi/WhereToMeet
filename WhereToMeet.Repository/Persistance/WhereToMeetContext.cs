@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using WhereToMeet.Repository.Models;
 
 namespace WhereToMeet.Repository.Persistance
 {
-    public class WhereToMeetContext : DbContext
+    public class WhereToMeetContext : IdentityDbContext<AppUser>
     {
         public WhereToMeetContext(DbContextOptions<WhereToMeetContext> options) : base(options) { }
 

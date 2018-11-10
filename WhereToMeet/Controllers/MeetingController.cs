@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WhereToMeet.BusinessLogic;
 using WhereToMeet.Models;
@@ -15,6 +16,7 @@ namespace WhereToMeet.Controllers
         }
 
         [ActionName("Index")]
+        [Authorize]
         public IActionResult Create()
         {
             return View("Create");
