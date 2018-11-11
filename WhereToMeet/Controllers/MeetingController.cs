@@ -15,11 +15,18 @@ namespace WhereToMeet.Controllers
             this.meetingOrganizer = meetingOrganizer;
         }
 
-        [ActionName("Index")]
-        [Authorize]
+        [ActionName("Create")]
         public IActionResult Create()
         {
-            return View("Create");
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else
+            {
+                string returnUrl = Url.Action(nameof(Create));
+                return RedirectToAction("Login", "Account", new { returnUrl});
+            }
         }
 
         public IActionResult Details(Guid meetingId)

@@ -19,19 +19,20 @@ namespace WhereToMeet.Controllers
             this.userManager = userManager;
         }
 
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl = null)
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
         [HttpPost]
-        public IActionResult ExternalLogin(string externalProvider)
+        public IActionResult ExternalLogin(string externalProvider, string returnUrl = null)
         {
             if (externalProvider != "Google")
             {
                 return new BadRequestResult();
             }
-            var redirectUri = Url.Action(nameof(ExternalLoginCallback), "Account");
+            var redirectUri = Url.Action(nameof(ExternalLoginCallback), "Account", new { returnUrl });
             var properties = signInManager.ConfigureExternalAuthenticationProperties(externalProvider, redirectUri);
             return Challenge(properties, externalProvider);
         }
@@ -42,6 +43,7 @@ namespace WhereToMeet.Controllers
             bool loginSuccessful = await LoginOrCreateExternalUser();
             if (loginSuccessful)
             {
+                if (returnUrl == null) returnUrl = Url.Action("Index", "Home");
                 return LocalRedirect(returnUrl);
             } else
             {

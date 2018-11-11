@@ -6,6 +6,7 @@
 
 <h1>Login</h1>
 
-@Html.BeginForm("ExternalLogin", "Account", FormMethod.Post){ 
+@Html.BeginForm("ExternalLogin", "Account", FormMethod.Post){
+    @Html.Hidden("returnUrl", ViewBag.ReturnUrl as string);
     <button type="submit" name="externalProvider" value="Google">Login using Google</button>
 }
