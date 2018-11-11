@@ -19,6 +19,7 @@ namespace WhereToMeet.Controllers
             this.userManager = userManager;
         }
 
+        [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -35,6 +36,13 @@ namespace WhereToMeet.Controllers
             var redirectUri = Url.Action(nameof(ExternalLoginCallback), "Account", new { returnUrl });
             var properties = signInManager.ConfigureExternalAuthenticationProperties(externalProvider, redirectUri);
             return Challenge(properties, externalProvider);
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
