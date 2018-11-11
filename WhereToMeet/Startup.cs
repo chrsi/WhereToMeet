@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,16 @@ namespace WhereToMeet
                 {
                     options.ClientId = Configuration["Authentication:Google:ClientId"];
                     options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                    options.Events = new Microsoft.AspNetCore.Authentication.OAuth.OAuthEvents
+                    {
+                        OnCreatingTicket = context =>
+                        {
+                            var identity = (ClaimsIdentity)context.Principal.Identity;
+                            var profileImg = context.User["image"].Value<string>("url");
+                            identity.AddClaim(new Claim("profileImg", profileImg));
+                            return Task.FromResult(0);
+                        }
+                    };
                 });
 
             services.AddIdentity<AppUser, IdentityRole>()
