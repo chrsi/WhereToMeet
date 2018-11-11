@@ -6,13 +6,24 @@
 }
 
 <section class="meeting-departures">
+    <section class="info">
+        <h1>Where to meet?</h1>
+        <p>
+            This app should find the answer to that question. Go ahead and create a meeting down below. Once the meeting is set up, you can share the link to you friend.
+        </p>
+        <p>
+            After both of you set your location, we'll recommend the perfect place to meet. :)
+        </p>
+    </section>
     <section class="existing-meetings">
+        <h1>Go to a Meeting</h1>
         <form method="post" asp-action="GoToMeeting">
             <input type="text" name="meetingId" placeholder="meeting identifier" />
             <input type="submit" />
         </form>
     </section>
     <section class="new-meetings">
-        @Html.ActionLink("Create Meeting", "Create", "Meeting")
+        <span>Don't have a meeting yet?</span>
+        @Html.ActionLink("Set one up now.", "Create", "Meeting")
     </section>
 </section>
