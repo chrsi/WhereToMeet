@@ -63,8 +63,10 @@ namespace WhereToMeet
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
         }
